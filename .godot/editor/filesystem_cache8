@@ -1,0 +1,8 @@
+2a60927148abd1d33b818b535e306557
+::res://::1679588368
+icon.svg::CompressedTexture2D::8890393224456532455::1679405705::1679405710::1::::<><>::
+main.tscn::PackedScene::6501039711075806265::1679574320::0::1::::<><>::res://Scripts/main.gd<>res://Shaders/box.gdshader
+::res://Scripts/::1679573234
+main.gd::GDScript::-1::1679573234::0::1::::<>Node3D<>::
+::res://Shaders/::1679544667
+box.gdshader::Shader::-1::1679544667::0::1::::<><>::

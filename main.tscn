@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyvff6n3wh6v2"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_7ta8w"]
+[ext_resource type="Shader" path="res://Shaders/box.gdshader" id="2_a4qnm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3e5ek"]
+render_priority = 0
+shader = ExtResource("2_a4qnm")
+shader_parameter/size = 1.0
+shader_parameter/width = 0.2
+shader_parameter/inner_color = null
+shader_parameter/outer_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_42phj"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_7ta8w")
+
+[node name="rotateCam" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="rotateCam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="environmet" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="environmet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00194073, 0.00528085, -0.00116575)
+visible = false
+material = SubResource("ShaderMaterial_3e5ek")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="environmet"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.1, 0.1, 0.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="environmet/CharacterBody3D"]
+shape = SubResource("SphereShape3D_42phj")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="environmet/CharacterBody3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environmet"]
+transform = Transform3D(1, 0, 0, 0, 0.582151, 0.81308, 0, -0.81308, 0.582151, 0, 0, 0)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="sigma" type="HSlider" parent="CanvasGroup"]
+offset_right = 256.0
+offset_bottom = 82.0
+min_value = 1.0
+max_value = 35.0
+value = 1.0
+
+[node name="rho" type="HSlider" parent="CanvasGroup"]
+offset_top = 82.0
+offset_right = 256.0
+offset_bottom = 164.0
+min_value = 1.0
+max_value = 35.0
+value = 1.0
+
+[node name="beta" type="HSlider" parent="CanvasGroup"]
+offset_top = 164.0
+offset_right = 256.0
+offset_bottom = 246.0
+min_value = 1.0
+max_value = 35.0
+value = 1.0
